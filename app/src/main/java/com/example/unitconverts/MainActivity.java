@@ -17,17 +17,14 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     private Spinner spinnerCategories, spinnerFrom, spinnerTo;
-    private RadioGroup radioGroupFromTo;
-    private RadioButton radioButtonFrom, radioButtonTo;
     private EditText editTextValue;
-    private Button buttonConvert;
     private TextView textViewResult;
 
-    private String[] categories = {"Length", "Weight", "Temperature", "Height"};
-    private String[] lengthUnits = {"Centimeters", "Meters", "Inches", "Feet"};
-    private String[] weightUnits = {"Grams", "Kilograms", "Ounces", "Pounds"};
-    private String[] temperatureUnits = {"Celsius", "Fahrenheit"};
-    private String[] heightUnits = {"Centimeters", "Meters", "Inches", "Feet"};
+    private final String[] categories = {"Length", "Weight", "Temperature", "Height"};
+    private final String[] lengthUnits = {"Centimeters", "Meters", "Inches", "Feet"};
+    private final String[] weightUnits = {"Grams", "Kilograms", "Ounces", "Pounds"};
+    private final String[] temperatureUnits = {"Celsius", "Fahrenheit"};
+    private final String[] heightUnits = {"Centimeters", "Meters", "Inches", "Feet"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
         spinnerCategories = findViewById(R.id.spinnerCategories);
         spinnerFrom = findViewById(R.id.spinnerFrom);
         spinnerTo = findViewById(R.id.spinnerTo);
-        radioGroupFromTo = findViewById(R.id.radioGroupFromTo);
-        radioButtonFrom = findViewById(R.id.radioButtonFrom);
-        radioButtonTo = findViewById(R.id.radioButtonTo);
+        RadioGroup radioGroupFromTo = findViewById(R.id.radioGroupFromTo);
+        RadioButton radioButtonFrom = findViewById(R.id.radioButtonFrom);
+        RadioButton radioButtonTo = findViewById(R.id.radioButtonTo);
         editTextValue = findViewById(R.id.editTextValue);
-        buttonConvert = findViewById(R.id.buttonConvert);
+        Button buttonConvert = findViewById(R.id.buttonConvert);
         textViewResult = findViewById(R.id.textViewResult);
 
         ArrayAdapter<String> categoryAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
@@ -71,9 +68,6 @@ public class MainActivity extends AppCompatActivity {
         String[] units;
 
         switch (position) {
-            case 0:
-                units = lengthUnits;
-                break;
             case 1:
                 units = weightUnits;
                 break;
